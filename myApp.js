@@ -1,8 +1,12 @@
 var express = require('express');
 var app = express();
+const bodyParser = require('body-parser');
 
 const absolutePath = __dirname + '/views/index.html';
 const stylePath = __dirname + '/public';
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use((req, res, next) =>{
     console.log(`${req.method} ${req.path} - ${req.ip}`);
