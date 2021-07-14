@@ -4,6 +4,10 @@ var app = express();
 const absolutePath = __dirname + '/views/index.html';
 const stylePath = __dirname + '/public';
 
+app.use((req, res, next) =>{
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+})
 
 app.get('/', (req, res) => {
   // res.send('Hello Express');
